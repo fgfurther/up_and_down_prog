@@ -1,3 +1,30 @@
+matrix=[]
+result=[]
+
+def enter_matrix(matrix):
+    return matrix
+
+def input_matrix():
+    return matrix
+
+def enter_rand_matrix(matrix):
+    return matrix
+
+def generate_random_matrix(rows, cols):
+    return matrix
+
+def process_matrix(matrix):
+    return result_matrix
+
+def make_matr(matrix):
+    return result
+
+def res(matrix, result):
+    return matrix, result
+
+def print_matrix(matrix):
+    pass
+
 def menu():
     print("\nМеню:")
     print("1. Ввести матрицу")
