@@ -1,4 +1,5 @@
-
+import random
+from collections import Counter
 
 class MatrixProcessor:
     def __init__(self):
@@ -6,25 +7,76 @@ class MatrixProcessor:
         self.result = None
 
     def input_matrix(self):
-        pass
+        while True:
+            try:
+                rows = int(input("Введите количество строк матрицы: "))
+                cols = int(input("Введите количество столбцов матрицы: "))
+                break
+            except ValueError:
+                print("Ошибка ввода. Пожалуйста, введите целочисленные значения.")
 
-    def enter_rand_matrix(self):
-        pass
+        matrix = []
+        for i in range(rows):
+            row = []
+            for j in range(cols):
+                while True:
+                    try:
+                        element = int(input(f"Введите элемент [{i}][{j}]: "))
+                        row.append(element)
+                        break
+                    except ValueError:
+                        print("Ошибка ввода. Пожалуйста, введите целочисленные значения.")
+            matrix.append(row)
+        self.matrix = matrix
 
     def generate_random_matrix(self, rows, cols, a, b):
-        pass
+        try:
+            matrix = [[random.randint(a, b) for _ in range(cols)] for _ in range(rows)]
+            return matrix
+        except ValueError:
+            print("Ошибка ввода. Пожалуйста, введите целочисленные значения.")
+            return None
+
+    def enter_rand_matrix(self):
+        while True:
+            try:
+                rows = int(input("Введите количество строк: "))
+                cols = int(input("Введите количество столбцов: "))
+                a = int(input(f"Введите нижнюю границу эллементов: "))
+                b = int(input(f"Введите верхнюю границу эллементов: "))
+                self.matrix = self.generate_random_matrix(rows, cols, a, b)
+                break
+            except ValueError:
+                print("Ошибка ввода. Пожалуйста, введите целочисленные значения.")
+
+        if self.matrix:
+            print("Изначальная матрица:")
+            self.print_matrix(self.matrix)
 
     def process_matrix(self):
-        pass
+        flat_matrix = [element for row in self.matrix for element in row]
+        element_counts = Counter(flat_matrix)
+        result_matrix = [[element_counts[element] for element in row] for row in self.matrix]
+        self.result = result_matrix
 
     def make_matr(self):
-        pass
-
-    def print_matrix(self, matrix):
-        pass
+        if self.matrix:
+            self.process_matrix()
+            print("Алгоритм выполнен.")
+        else:
+            print("Сначала введите или сгенерируйте матрицу.")
 
     def res(self):
-        pass
+        if self.result:
+            self.print_matrix(self.matrix)
+            print("Результат:")
+            self.print_matrix(self.result)
+        else:
+            print("Сначала выполните алгоритм.")
+
+    def print_matrix(self, matrix):
+        for row in matrix:
+            print(" ".join(map(str, row)))
 
 def print_menu():
     print("\nМеню:")
