@@ -1,4 +1,31 @@
 
+
+class MatrixProcessor:
+    def __init__(self):
+        self.matrix = None
+        self.result = None
+
+    def input_matrix(self):
+        pass
+
+    def enter_rand_matrix(self):
+        pass
+
+    def generate_random_matrix(self, rows, cols, a, b):
+        pass
+
+    def process_matrix(self):
+        pass
+
+    def make_matr(self):
+        pass
+
+    def print_matrix(self, matrix):
+        pass
+
+    def res(self):
+        pass
+
 def print_menu():
     print("\nМеню:")
     print("1. Ввести матрицу")
