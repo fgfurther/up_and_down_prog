@@ -5,6 +5,15 @@ matrix=[]
 result=[]
 
 def enter_matrix(matrix):
+    """
+        Функция для ввода матрицы пользователем.
+
+        Args:
+        matrix (list): Пустой список, в который будет сохранена введенная матрица.
+
+        Returns:
+        list: Введенная матрица.
+        """
     matrix = input_matrix()
     if matrix:
         print("Изначальная матрица:")
@@ -13,6 +22,12 @@ def enter_matrix(matrix):
     return matrix
 
 def input_matrix():
+    """
+        Вспомогательная функция для ввода значений матрицы.
+
+        Returns:
+        list: Введенная пользователем матрица.
+        """
     while True:
         try:
             rows = int(input("Введите количество строк матрицы: "))
@@ -36,6 +51,15 @@ def input_matrix():
     return matrix
 
 def enter_rand_matrix(matrix):
+    """
+      Функция для генерации случайной матрицы.
+
+      Args:
+      matrix (list): Пустой список, в который будет сохранена сгенерированная матрица.
+
+      Returns:
+      list: Сгенерированная случайная матрица.
+      """
     while True:
         try:
             rows = int(input("Введите количество строк: "))
@@ -51,6 +75,16 @@ def enter_rand_matrix(matrix):
     return matrix
 
 def generate_random_matrix(rows, cols):
+    """
+       Вспомогательная функция для генерации случайной матрицы.
+
+       Args:
+       rows (int): Количество строк в матрице.
+       cols (int): Количество столбцов в матрице.
+
+       Returns:
+       list: Сгенерированная случайная матрица.
+       """
     try:
         a = int(input(f"Введите нижнюю границу эллементов: "))
         b = int(input(f"Введите верхнюю границу эллементов: "))
@@ -64,6 +98,15 @@ def generate_random_matrix(rows, cols):
         return None
 
 def process_matrix(matrix):
+    """
+       Функция для обработки матрицы и создания новой матрицы с частотой появления каждого элемента.
+
+       Args:
+       matrix (list): Исходная матрица.
+
+       Returns:
+       list: Новая матрица с частотой появления элементов.
+       """
     flat_matrix = [element for row in matrix for element in row]
     # Создает одномерный список (flat_matrix), объединяя все элементы матрицы в один список.
 
@@ -76,6 +119,15 @@ def process_matrix(matrix):
     return result_matrix
 
 def make_matr(matrix):
+    """
+        Функция для выполнения алгоритма обработки матрицы.
+
+        Args:
+        matrix (list): Исходная матрица.
+
+        Returns:
+        list: Новая матрица с результатами обработки.
+        """
     if matrix:
         result = process_matrix(matrix)
         print("Алгоритм выполнен.")
@@ -86,6 +138,16 @@ def make_matr(matrix):
     return result
 
 def res(matrix, result):
+    """
+        Функция для вывода исходной и обработанной матрицы.
+
+        Args:
+        matrix (list): Исходная матрица.
+        result (list): Обработанная матрица.
+
+        Returns:
+        tuple: Кортеж с исходной и обработанной матрицей.
+        """
     if result:
         print_matrix(matrix)
         print("Результат:")
@@ -97,6 +159,12 @@ def res(matrix, result):
     return matrix, result
 
 def print_matrix(matrix):
+    """
+        Функция для вывода матрицы.
+
+        Args:
+        matrix (list): Матрица для вывода.
+        """
     for row in matrix:
         print(" ".join(map(str, row)))
 
@@ -109,6 +177,9 @@ def menu():
     print("5. Завершить работу")
 
 def main():
+    """
+        Основная функция программы.
+        """
     while True:
         menu()
 
