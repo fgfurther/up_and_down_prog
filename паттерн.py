@@ -4,6 +4,9 @@ class Book:
         self.author = author
         self.year = year
 
+    def display_info(self):
+        print(f"Title: {book.title}, Author: {book.author}, Year: {book.year}")
+
 class Library:
     def __init__(self):
         self.books = []
@@ -13,18 +16,19 @@ class Library:
 
     def display_books(self):
         for book in self.books:
-            print(f"Title: {book.title}, Author: {book.author}, Year: {book.year}")
+            book.display_info()
+
 
 # Пример использования паттерна ООП
-library_oop_pattern = Library()
+library = Library()
 book1 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
 book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
 
-library_oop_pattern.add_book(book1)
-library_oop_pattern.add_book(book2)
+library.add_book(book1)
+library.add_book(book2)
 
 print("Books in the library (OOP pattern):")
-library_oop_pattern.display_books()
+library.display_books()
 
 
 
@@ -42,15 +46,15 @@ def display_books(library):
         print(f"Title: {book.title}, Author: {book.author}, Year: {book.year}")
 
 # Пример использования процедурного стиля с паттерном
-library_procedural_pattern = []
+library = []
 book1 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
 book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
 
-add_book(library_procedural_pattern, book1)
-add_book(library_procedural_pattern, book2)
+add_book(library, book1)
+add_book(library, book2)
 
 print("Books in the library (Procedural pattern):")
-display_books(library_procedural_pattern)
+display_books(library)
 
 
 class Book:
@@ -60,13 +64,13 @@ class Book:
         self.year = year
 
 # Пример использования объектно-ориентированного стиля без паттерна
-library_oop_without_pattern = []
+library = []
 book1 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
 book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
 
-library_oop_without_pattern.append(book1)
-library_oop_without_pattern.append(book2)
+library.append(book1)
+library.append(book2)
 
 print("Books in the library (OOP without pattern):")
-for book in library_oop_without_pattern:
+for book in library:
     print(f"Title: {book.title}, Author: {book.author}, Year: {book.year}")
